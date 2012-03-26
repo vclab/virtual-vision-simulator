@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pedestrians>
+    <pedestrian character="CMan0011" texture='CMan0011_1.png' pos='-350 0 -10' scale='25' hpr='180 0 0'>
+        <commands start_time='0'>stand walk walk walk walk walk walk walk walk walk l45 walk walk stand</commands>
+    </pedestrian>
+    
+    <pedestrian character='CMan0012' texture='CMan0012_1.png' pos='-350 0 -10' scale='25' hpr='180 0 0'>
+        <commands start_time='20'>stand walk walk walk walk walk walk walk walk walk l45 walk walk stand</commands>
+    </pedestrian>
+    
+    <pedestrian character='CMan0013' texture='CMan0013_1.png' pos='-350 0 -10' scale='25' hpr='180 0 0'>
+        <commands start_time='50'>stand walk walk walk walk walk walk walk walk walk l45 walk walk stand</commands>
+    </pedestrian>
+    
+    <pedestrian character='CMan0011' texture='CMan0011_2.png' pos='-350 0 -10' scale='25' hpr='180 0 0'>
+        <commands start_time='52'>stand walk walk walk walk walk walk walk walk walk l45 walk walk stand</commands>
+    </pedestrian>
+    
+    <pedestrian character='CMan0012' texture='CMan0012_2.png' pos='-350 0 -10' scale='25' hpr='180 0 0'>
+        <commands start_time='53'>stand walk walk walk walk walk walk walk walk walk l45 walk walk stand</commands>
+    </pedestrian>
+
+    <pedestrian character='CMan0013' texture='CMan0013_2.png' pos='-780 0 -60' scale='25' hpr='0 0 0'>
+        <commands start_time='2'>walk walk walk walk stand l90 walk walk r45 walk walk r45 walk walk walk walk walk r90 walk walk stand stand stand stand stand stand 180 walk l45 walk l45 walk walk walk l45 walk run run run run walk walk walk walk stand</commands>
+    </pedestrian>
+    
+    <pedestrian character='CMan0011' texture='CMan0011_3.png' pos='-780 0 -50' scale='25' hpr='0 0 0'>
+        <commands start_time='10'>walk walk walk walk walk r45 r45 walk walk walk walk walk walk l45 l45 walk walk walk walk run run run run run run run run run run run run l45 walk walk walk walk walk stand stand stand stand stand stand stand l90 walk walk l45 walk walk walk stand</commands>
+    </pedestrian>
+    
+    	<pedestrian character='CMan0012' texture='CMan0012_6.png' pos='450 0 -220' scale='25' hpr='0 0 0'>
+        <commands>stand l90 l90 run run run run run run run run run run run walk walk l45 walk r45 walk walk walk l90 walk walk stand l45 walk walk walk l45 walk walk l45 walk walk stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0013' texture='CMan0013_3.png' pos='-350 0 -280' scale='25' hpr='180 0 0'>
+        <commands>stand walk walk walk walk walk l90 walk walk walk walk walk walk l90 walk walk l45 walk walk walk walk stand</commands>
+	</pedestrian>
+
+	<pedestrian character='CMan0011' texture='CMan0011_4.png' pos='-780 0 -70' scale='25' hpr='0 0 0'>
+        <commands start_time='12'>stand walk walk walk walk walk r45 walk walk l45 walk walk walk stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0012' texture='CMan0012_8.png' pos='-560 0 165' scale='25' hpr='180 0 0'>
+        <commands>stand stand stand stand stand stand stand stand stand stand stand r90 walk walk walk walk l90 walk stand stand r45 walk l45 stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0013' texture='CMan0013_4.png' pos='-610 0 165' scale='25' hpr='0 0 0'>
+        <commands>stand stand stand stand stand stand stand stand stand r45 walk walk walk walk l45 walk walk run run run run run walk walk walk walk walk walk l90 walk walk stand
+</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0011' texture='CMan0011_5.png' pos='-590 0 140' scale='25' hpr='-90 0 0'>
+        <commands>stand stand stand stand stand stand 180 walk walk walk r45 walk walk walk l45 walk walk walk r90 walk walk walk walk walk walk r90 walk stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0012' texture='CMan0012_5.png' pos='590 0 290' scale='25' hpr='-90 0 0'>
+        <commands>stand stand stand stand 180 walk walk walk walk walk walk walk walk walk walk walk walk walk walk l90 walk walk l90 walk walk walk walk walk walk walk walk walk walk walk walk walk r90 walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk r90 walk walk walk walk walk walk walk l90 walk walk walk stand stand stand l45 walk r45 stand stand</commands>
+	</pedestrian>
+	
+  <pedestrian character='CMan0013' texture='CMan0013_5.png' pos='650 0 -290' scale='25' hpr='180 0 0'>
+        <commands>stand stand l90 walk r45 walk walk l45 walk l45 walk walk walk r45 walk walk walk walk walk 180 walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk 180 walk walk walk walk walk walk walk walk walk l45 r45 walk walk walk stand stand 180 walk walk walk walk walk walk walk walk walk l45 walk walk walk walk walk l45 walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk l45 walk walk walk walk walk r45 walk walk walk stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0011' texture='CMan0011_6.png' pos='350 0 -10' scale='25' hpr='0 0 0'>
+        <commands>stand stand stand stand stand walk walk walk walk walk walk walk stand stand stand stand stand 180 walk walk walk walk stand walk walk walk walk stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0012' texture='CMan0012_6.png' pos='100 0 -10' scale='25' hpr='0 0 0'>
+        <commands>stand stand stand stand stand stand walk walk walk walk walk walk walk walk walk l90 walk walk walk walk walk l90 walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk l90 walk walk r90 walk walk walk walk stand stand stand stand walk walk stand stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0013' texture='CMan0013_6.png' pos='110 0 10' scale='25' hpr='0 0 0'>
+        <commands>stand stand stand stand stand stand stand walk walk walk walk walk walk walk walk l90 walk walk walk walk walk l90 walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk l90 walk walk walk r90 walk walk walk walk stand stand stand stand walk walk walk walk stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0011' texture='CMan0011_7.png' pos='90 0 5' scale='25' hpr='0 0 0'>
+        <commands start_time="0.5">stand stand stand stand stand stand stand stand walk walk walk walk walk walk walk walk l90 walk walk walk walk walk l90 walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk walk l90 walk walk walk r90 walk walk walk stand stand stand stand walk walk walk stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0012' texture='CMan0012_7.png' pos='85 0 -15' scale='25' hpr='0 0 0'>
+        <commands>stand stand stand stand stand stand stand stand walk walk walk walk walk walk walk walk walk stand stand r90 walk walk l45 walk walk walk walk stand stand stand stand stand 180 walk walk r45 walk walk run run run run l90 r90 l90 walk walk walk walk walk walk walk run run run run run run run run run l90 walk walk walk walk walk stand stand stand r90 walk walk walk l45 walk walk walk stand</commands>
+	</pedestrian>
+	
+	<pedestrian character='CMan0012' texture='CMan0012_8.png' pos='500 0 -15' scale='25' hpr='0 0 0'>
+        <commands>stand stand l90 walk walk walk walk walk walk 180 walk walk walk walk walk walk walk walk walk walk walk walk walk walk 180 walk walk walk walk walk walk walk walk walk walk walk walk walk 180 walk walk walk walk walk walk walk walk walk walk walk walk walk l90 l90 walk walk walk walk walk walk walk walk walk walk walk walk walk walk stand stand stand 180 walk walk walk walk walk walk r90 walk walk walk walk r45 walk walk walk stand</commands>
+	</pedestrian> 
+</pedestrians>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<scene>
+  <models>
+    <model path="../../media/scenes/office_floor/office_floor.egg" scale="25" pos="0 0 0" hpr="0 0 0" has_lighting='1'/>
+    <model path="../../media/scenes/office_floor/skybox.egg" scale="25" pos="0 0 50" hpr="0 0 0" has_lighting='0'/>
+  </models>
+  <lights>
+    <light type="ambient" color="0.8 0.8 0.8 1.0"/>
+
+
+<!--    <light pos="250 280 100" fov="120" exponent="4"/>-->
+<!--    <light pos="250 -280 100" fov="120" exponent="4"/>-->
+<!--    -->
+<!--    <light pos="0 280 100" fov="120" exponent="4"/>-->
+<!--    <light pos="0 -280 100" fov="120" exponent="4"/>-->
+<!--    -->
+<!--    <light pos="-250 280 100" fov="120" exponent="4"/>-->
+<!--    <light pos="-250 -280 100" fov="120" exponent="4"/>-->
+    
+    
+    <light type="spotlight" casts_shadow="1" pos="-575 150 100" fov="170" exponent="1.5"/>
+    <light type="spotlight" casts_shadow="1" pos="-575 -150 100" fov="170" exponent="1.5"/>
+    
+    <light type="spotlight" casts_shadow="1" pos="550 150 100" fov="170" exponent="1.5"/>
+    <light type="spotlight" casts_shadow="1" pos="550 -150 100" fov="170" exponent="1.5"/>
+    
+    <light type="directional" hpr="180 -40 0" pos="0 300 300" near="0" far="200" color="0.4 0.4 0.4 1" casts_shadow="1" shadow_caster="4096 4096" film_size="512 512"/>
+
+  </lights>
+</scene>

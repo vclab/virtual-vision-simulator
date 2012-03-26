@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cameras>
+    <camera type='static_camera'>
+        <color>0 255 0</color>
+        <id>1</id>
+        <position>-575 90 -320</position>
+        <up_vector>0 1 0</up_vector>
+        <near_plane>1</near_plane>
+        <far_plane>100000</far_plane>
+        <constraints>
+            <fov_limits>30 100</fov_limits>
+            <pan_limits>-30 30</pan_limits>
+            <tilt_limits>-30 30</tilt_limits>
+        </constraints>
+        <default_direction>0 -2 4</default_direction>
+        <default_fov>100</default_fov>
+        <fov>100</fov>
+    </camera>
+
+    <camera type='active_camera'>
+        <color>255 255 0</color>
+        <id>2</id>
+        <position>-575 90 320</position>
+        <up_vector>0 1 0</up_vector>
+        <near_plane>1</near_plane>
+        <far_plane>100000</far_plane>
+        <constraints>
+            <fov_limits>30 100</fov_limits>
+            <pan_limits>-30 30</pan_limits>
+            <tilt_limits>-30 30</tilt_limits>
+        </constraints>
+        <default_direction>0 -2 -4</default_direction>
+        <default_fov>100</default_fov>
+        <fov>100</fov>
+    </camera>
+
+    <camera type='active_camera'>
+        <color>255 255 255</color>
+        <id>3</id>
+        <position>575 90 300</position>
+        <up_vector>0 1 0</up_vector>
+        <near_plane>1</near_plane>
+        <far_plane>100000</far_plane>
+        <constraints>
+            <fov_limits>30 100</fov_limits>
+            <pan_limits>-30 30</pan_limits>
+            <tilt_limits>-30 30</tilt_limits>
+        </constraints>
+        <default_direction>0 -2 -4</default_direction>
+        <default_fov>100</default_fov>
+        <fov>100</fov>
+    </camera>
+</cameras>
