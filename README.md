@@ -47,7 +47,13 @@ NOTES:
 
 - Make sure they all use the same version of python. (The version that comes with Panda3D is probably the best choice)
 
-- You will probably have to copy cv.lib and cv.pyd from the OPENCV_DIR/Python2.6/Lib/site-packages folder to the folder where your version of python is located.
+- You will probably have to copy cv.lib and cv.pyd from the OPENCV_DIR/Python2.6/Lib/site-packages folder to the folder where your version of python is located. 
+
+    - OPENCV_DIR is your opencv directory. By default this is C:\OpenCV2.1 
+    
+    - PANDA3D_DIR is your panda3D directory. By default this is C:\Panda3D-1.7.2
+
+- Make sure OPENCV_DIR\bin is added to your Path
 
 
 Linux-Ubuntu
