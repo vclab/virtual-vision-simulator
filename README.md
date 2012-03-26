@@ -1,7 +1,9 @@
 Virtual Vision Simulator
 ========================
-Version: 
+Version:
+
 Author: Wiktor Starzyk
+
 Supervisor: Dr. Faisal Qureshi
 
 
@@ -114,6 +116,7 @@ Contact Information
 ===================
 
 Wiktor Starzyk        wiktor.starzyk@uoit.ca
+
 Faisal Z. Qureshi     faisal.qureshi@uoit.ca
 
 To report bugs or give feedback, please email Wiktor.
