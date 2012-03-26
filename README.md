@@ -96,6 +96,7 @@ Execute: python Sync_Client.py [options] ip_address:port ip_address:port ...
 Where ip_address:port is replaced with the ip address and port of all the simulators
 
 Options:
+
     --debug         Show debug messages
 
 
@@ -105,6 +106,7 @@ Sample Client
 Execute: python sample_client.py [options]
 
 Options:
+
     - p port        Set the port of the virtual world
     - a ip_address  Set the ip address of the virtual world
     - s             Save the images received from the server
