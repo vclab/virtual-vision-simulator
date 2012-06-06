@@ -22,34 +22,22 @@
 #
 
 
-import sys
-import getopt
+import argparse
 import logging
 
 from sync_client.sync_client import SyncClient
 
 def main():
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "", ["debug"])
-    except getopt.GetoptError, err:
-        print str(err)
-        sys.exit(2)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--debug', dest='debug', action='store_const',
+        const=logging.DEBUG, default=logging.INFO, help='show debug messages')
+    parser.add_argument('servers', nargs='+')
+    args = parser.parse_args()
 
-    debug = False
-    for o, a in opts:
-
-        if o in ("--debug"):
-            debug = True
-
-    format_str = '%(levelname)s: %(message)s'
-    if debug:
-        logging.basicConfig(format=format_str, level=logging.DEBUG)
-    else:
-        logging.basicConfig(format=format_str, level=logging.INFO)
+    logging.basicConfig(format='%(levelname)s: %(message)s', level=args.debug)
 
     server_list = []
-    servers = args
-    for server in servers:
+    for server in args.servers:
         ip, port = server.split(":")
         server_list.append((ip, int(port)))
 
