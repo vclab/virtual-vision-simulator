@@ -24,7 +24,7 @@
 
 import sys
 import os
-import getopt
+import argparse
 import logging
 
 import atexit
@@ -38,70 +38,30 @@ from simulator.panda3d.virtual_world import VirtualWorld
 from simulator.panda3d.server.socket_server import SocketServer
 from simulator.panda3d.controller import AUTOMATIC, MANUAL
 
-PORT = 9099
-
-def usage():
-    print ""
-    print "usage: python 3D_Simulator.py [options]"
-    print "Options:"
-    print "-d directory\t: Set the directory where the config files are located"
-    print "-p port\t\t: Set the port the server should run on (default is 9099)"
-    print "-a \t\t: Set the mode of the simulation controller to automatic"
-    print "-s \t\t: A Sync session is used to control the time"
-    print "-h \t\t: Print this help message and exit"
-    print "-m \t\t: Set the directory where the models are located"
-    print "--debug\t: Show debug messages"
-    print ""
-
-
 def main():
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "d:p:ahs", 
-                                   ["dir=", "port=", "debug"])
-    except getopt.GetoptError, err:
-        print str(err)
-        sys.exit(2)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--dir', dest='directory', required=True,
+        help='the directory where the config files are located')
+    parser.add_argument('-p', '--port', dest='port', type=int, default=9099,
+        help='the port the server should run on')
+    parser.add_argument('-a', '--automatic', dest='mode', action='store_const',
+        const=AUTOMATIC, default=MANUAL,
+        help='set the mode of the simulation controller to automatic')
+    parser.add_argument('-s', '--sync', dest='sync', action='store_true',
+        default=False, help='a Sync session is used to control the time')
+    parser.add_argument('-m', '--models', dest='models',
+        help='the directory where the models are located')
+    parser.add_argument('--debug', dest='debug', action='store_const',
+        const=logging.DEBUG, default=logging.INFO, help='show debug messages')
+    args = parser.parse_args()
 
-    directory = None
-    port = PORT
-    mode = MANUAL
-    sync = False
-    debug = False
-    for o, a in opts:
-        if o in ("-d", "--dir"):
-            directory = Filename.fromOsSpecific(a)
-            scene_file = os.path.join(a, "scene.xml")
-            camera_file = os.path.join(a, "cameras.xml")
-            pedestrian_file = os.path.join(a, "pedestrians.xml")
-        elif o in ("-p", "--port"):
-            port = int(a)
-            
-        elif o in ("-a"):
-            mode = AUTOMATIC
-            
-        elif o in ("-h"):
-            usage()
-            sys.exit(0)
-            
-        elif o in ("-s"):
-            sync = True
-            
-        elif o in ("--debug"):
-            debug = True
-
-    if not directory:
-        print "Please specify a scenario directory using the -d flag!"
-        sys.exit(2)
-    
-    format_str = '%(levelname)s: %(message)s'
-    if debug:
-        logging.basicConfig(format=format_str, level=logging.DEBUG)
-    else:
-        logging.basicConfig(format=format_str, level=logging.INFO)
+    logging.basicConfig(format='%(levelname)s: %(message)s', level=args.debug)
 
     # Create the virtual world by loading all of the models that make up the 
     # scene as well as all of the pedestrians.
-    virtual_world = VirtualWorld(scene_file, pedestrian_file, directory, mode)
+    virtual_world = VirtualWorld(os.path.join(args.directory, 'scene.xml'),
+        os.path.join(args.directory, 'pedestrians.xml'),
+        Filename.fromOsSpecific(args.directory), args.mode)
     model = virtual_world.getModel()
     
     # Create the camera manager which keeps track of what cameras are linked to 
@@ -112,6 +72,7 @@ def main():
     # Load all of the camera modules.
     # Each camera module is linked with a panda camera that has the ability to
     # render to a texture that can be processed using opencv.
+    camera_file = os.path.join(args.directory, 'cameras.xml')
     if not os.path.exists(camera_file):
             logging.error("The path '%s' does not exist" % camera_file)
             sys.exit()
@@ -131,8 +92,9 @@ def main():
 
     # Create the server object that listens for incoming messages and connection 
     # requests from other modules.
-    if mode != AUTOMATIC:
-        server = SocketServer(port, virtual_world, camera_manager, sync)
+    if args.mode != AUTOMATIC:
+        server = SocketServer(args.port, virtual_world, camera_manager,
+            args.sync)
 
     # Start the main event loop that runs the world.
     virtual_world.run()

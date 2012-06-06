@@ -27,16 +27,11 @@ import sys
 import socket
 import cv
 import thread
-import getopt
+import argparse
 import logging
 
 from pandac.PandaModules import NetDatagram
 from simulator.panda3d.server.socket_packet import SocketPacket
-
-SAVE_IMAGES = False
-
-IP = 'localhost'
-PORT = 9099
 
 #Message Types
 VV_ACK_OK = 0
@@ -75,7 +70,8 @@ ACTIVE_PIPELINE = 1
 SESSION_TYPE = 1
 
 class MyFrame(wx.Frame):
-    def __init__(self, parent, id, title, ip_address, port, pipeline):
+    def __init__(self, parent, id, title, ip_address, port, pipeline,
+                 save_images=False):
         wx.Frame.__init__(self, parent, id, title, size=(230, 360))
 
         panel = wx.Panel(self, -1)
@@ -130,6 +126,8 @@ class MyFrame(wx.Frame):
         self.Bind(wx.EVT_BUTTON, self.default, id=106)
         self.Bind(wx.EVT_BUTTON, self.getImage, id=107)
         self.Bind(wx.EVT_BUTTON, self.setResolution, id=110)
+
+        self.save_images = save_images
 
      
     def step(self, event):
@@ -328,7 +326,7 @@ class MyFrame(wx.Frame):
 
             self.camera_id = cam_id
             cv.ShowImage("Image", cv_im)
-            if SAVE_IMAGES:
+            if self.save_images:
                 cv.SaveImage("cam%s_%s.jpg" % (cam_id, self.count), cv_im)
                 self.count+=1
             cv.WaitKey()
@@ -345,59 +343,26 @@ class MyFrame(wx.Frame):
             cv.SetData(image, image_data)
 
 
-def usage():
-    print ""
-    print "USAGE: python sample_client.py [options]"
-    print "Options:"
-    print "- p port\t: Set the port of the virtual world"
-    print "- a ip_address\t: Set the ip address of the virtual world"
-    print "- s\t\t: Save the images received from the server"
-    print "- h \t\t: Print this help message and exit"
-    print "--debug\t\t: Show debug messages"
-    print ""
-
-
 def main():
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "a:p:hs", ["debug", "address=", "port=" "static"])
-    except getopt.GetoptError, err:
-        print str(err)
-        sys.exit(2)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-a', '--address', dest='address', default='localhost',
+        help='set the IP address of the virtual world')
+    parser.add_argument('-p', '--port', dest='port', type=int, default=9099,
+        help='the port of the virtual world')
+    parser.add_argument('-s', '--save-images', dest='save_images',
+        action='store_true', default=False,
+        help='save the images received from the server')
+    parser.add_argument('--static', dest='pipeline', action='store_const',
+        const=STATIC_PIPELINE, default=ACTIVE_PIPELINE)
+    parser.add_argument('--debug', dest='debug', action='store_const',
+        const=logging.DEBUG, default=logging.INFO, help='show debug messages')
+    args = parser.parse_args()
 
-    debug = False
-    ip_address = IP
-    port = PORT
-    pipeline = ACTIVE_PIPELINE
-    for o, a in opts:
-
-        if o in ("--debug"):
-            debug = True
-        
-        elif o in ("-a", "--address"):
-            ip_address = a
-        
-        elif o in ("-p", "--port"):
-            port = int(a)
-
-        elif o in ("-h"):
-            usage()
-            sys.exit(0)
-
-        elif o in ("-s"):
-            SAVE_IMAGES = True
-
-        elif o in ("--static"):
-            pipeline = STATIC_PIPELINE
-
-
-    format_str = '%(levelname)s: %(message)s'
-    if debug:
-        logging.basicConfig(format=format_str, level=logging.DEBUG)
-    else:
-        logging.basicConfig(format=format_str, level=logging.INFO)
+    logging.basicConfig(format='%(levelname)s: %(message)s', level=args.debug)
 
     app = wx.App()
-    frame = MyFrame(None, -1, 'Sample Client', ip_address, port, pipeline)
+    frame = MyFrame(None, -1, 'Sample Client', args.address, args.port,
+        args.pipeline, save_images=args.save_images)
     frame.Show(True)
     app.MainLoop()
 
