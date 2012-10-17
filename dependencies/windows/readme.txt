@@ -20,3 +20,5 @@ Install OpenCV-2.1.0-win32-vs2008.
 Copy OPENCV_DIR\Python2.6\Lib\site-packages\cv.lib and OPENCV_DIR\Python2.6\Lib\site-packages\cv.pyd to PANDA3D_DIR\python\Lib\site-packages folder. (OPENCV_DIR and PANDA3D_DIR are the directories where OpenCV and Panda3D were installed)
 
 Your installation is now complete! Go to the Usage section to see how to run the virtual vision simulator.
+
+argparse-1.2.1 is needed as we are using Python 2.6.  Please install argparse or set your PYTHONPATH environment variable to point to the directory containing argparse.py
